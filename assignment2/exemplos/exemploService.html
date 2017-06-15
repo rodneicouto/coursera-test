@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" >
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.angularjs.org/1.6.4/angular.min.js"> </script>
+<body>
+    <div >
+        
+        <!--<button ng-click="msg = 'Mundo Cruel'"> Muda</button>-->
+        <!--<button onclick="change()"> Muda</button>-->
+    </div>
+    
+
+
+    <script>
+
+
+        function MyService() {
+
+            return {
+                sayHello : sayHello   
+            };            
+            
+           // this.$get = function (){
+           //     return {
+           //         sayHello: sayHello
+           //     }
+           // }
+            
+            function sayHello(){
+                console.log("HelloWorld");
+            }
+            
+        }
+
+        function MyController(MyService){
+            MyService.sayHello();
+        }
+
+        
+        /////////////////////////////
+        //Service
+        //new MyController(new MyService());
+
+        //Factory
+        //new MyController(MyService());
+
+
+        //new MyController( (new MyService()).$get() );
+        //
+        //
+        
+        new MyController( MyService() );
+
+
+        
+
+        
+       
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" ng-app='MyApp'>
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.angularjs.org/1.6.4/angular.min.js"> </script>
+<body>
+    <div ng-controller="MyController">
+            
+    </div>
+    
+
+    <script>
+
+
+        
+        angular.module('MyApp', [])
+        .controller('MyController', MyController);
+        
+        function MyController($scope, $timeout, $q) {
+
+            console.log( "chamou demora");
+
+            demora1().then(function(result){
+                return demora2(result);
+            }).then(function(resultado2){
+                console.log( "Linha 27" + resultado2 );
+            }).
+            catch(function(error){
+                console.log( error );
+            })
+            
+            $q.all([demora1(), demora2()]).then(function(resultado){
+                console.log( "resultado then", resultado );
+            }).catch(function(error){
+                console.log( error );
+            });
+
+
+            function demora1() {
+                var deferred = $q.defer();
+                $timeout(function(){
+                     //deferred.resolve("funcionou1");                     
+                     deferred.reject({msg:"falha1"});                     
+                }, 1500);
+                return deferred.promise;
+            }
+
+            function demora2(valor) {
+                var deferred = $q.defer();
+                $timeout(function(){
+                     deferred.resolve(valor + " funcionou2");                     
+                }, 1500);
+                return deferred.promise;
+            }
+
+
+
+        }                
+
+
+        /////////
+          
+       
+
+    </script>
+</body>
+</html>

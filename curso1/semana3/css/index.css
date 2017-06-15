@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+header h1 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+#collapsable-nav .navbar-nav li {
+    text-align: center;
+    background-color: #ddd;
+    border-bottom: 1px solid black;
+}
+
+#collapsable-nav ul:first-child {
+    border-top: 1px solid black;
+}
+
+#collapsable-nav .navbar-nav {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.content {
+    height: 1000px;
+    overflow: auto;
+    background-color: #ddd;
+}
+
+@media (max-width: 768px) {
+    .container > .row {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}

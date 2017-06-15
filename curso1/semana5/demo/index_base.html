@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<title>Exemplo javascript</title>
+		<script src="jquery-2.2.4.min.js"></script>
+	</head>
+	<body>
+		<h1> Aprendendo Javascript </h1>
+		<p>Javascript &eacute;:</p>
+		<ul id="listaDescricao">
+			<li data-id="idcontato">Uma Linguagem que roda no browser</li>
+			<li>Simples, mas poderosa</li>
+		</ul>
+		<p> <input type="text" id="texto"/> </p> 
+		<input type="button" value="adicionar" id="addBtn">
+		<input type="button" value="lerAjax" id="ajax">
+		<script>
+			var ul = document.getElementById("listaDescricao");
+
+			// var li = document.createElement("li");
+			// // li.appendChild(document.createTextNode("Novo"));
+			// li.innerHTML = "Novo";
+			// ul.appendChild(li);
+			 
+			function criaLi() {
+			    var value = document.getElementById('texto').value;
+			    var li = document.createElement("li");
+			    li.appendChild(document.createTextNode(value));
+			    ul.appendChild(li);
+			}
+
+			document.getElementById("addBtn").addEventListener("click", function() {
+				    criaLi();
+				}, false);
+
+			function ajaxCriaLi(result) {
+				debugger;
+				console.log('ajax');
+				var data = result.responseJSON;
+				var html = ""
+
+				for( var i = 0; i < data.contatos.length; i++ ){
+					html += '<li>';
+					html += data.contatos[i].displayName;
+					html += '</li>';				
+				}
+				ul.innerHTML = html;
+				
+			}
+
+			// document.getElementById("ajax").addEventListener("click", function() {
+				    
+			// 	}, false);
+			// 	
+			$.ajax({
+			  url: "contatos.js",
+			  method: 'GET', 
+			  dataType: "json",
+			  complete: ajaxCriaLi
+			});
+
+			console.log('Final arquivo');
+			
+
+		</script>
+	</body>
+</html>

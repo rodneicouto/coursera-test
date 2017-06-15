@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MenuApp">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="app/menu/home/home.css">        
+    </head>
+    <body>
+
+        <ui-view></ui-view>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"> </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"> </script>
+
+        <script src="app/menu/menuapp.module.js"></script>
+        <script src="app/menu/menuapp.route.js"></script>
+        <script src="app/menu/home/home.component.js"></script>
+        <script src="app/menu/category/category.component.js"></script>
+        <script src="app/menu/item/item.component.js"></script>
+        
+        <script src="app/data/data.module.js"></script>
+        <script src="app/data/services/menudata.service.js"></script>
+    </body>
+</html>

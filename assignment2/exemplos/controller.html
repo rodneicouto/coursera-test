@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" ng-app='MyApp'>
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.angularjs.org/1.6.4/angular.min.js"> </script>
+<body>
+    <div ng-controller="PaiController as pai">
+        <span ng-bind="valor"></span>
+        <div ng-controller="FilhoController as filho">
+        </div>
+    </div>
+    
+
+
+    <script>
+
+        // var parent = {
+        //     value: "PaiValor",
+        //     obj: {
+        //         objValue: "PaiValor"
+        //     },
+        //     walk: function () {
+        //         console.log("walking!");
+        //     }
+        // };
+        // var child = Object.create(parent);
+
+        // child.value = "valorFilho";
+        // child.obj.objValue = "valorFilho";
+        
+        // console.log("parent: ", parent);
+        // console.log("child: ", child);
+        // console.log("CHILD - child.value: ", child.value);
+        // console.log("CHILD - child.obj.objValue: ", child.obj.objValue);
+        // console.log("PARENT - parent.value: ", parent.value);
+        // console.log("PARENT - parent.obj.objValue: ", parent.obj.objValue);
+        
+        //////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        angular.module('MyApp', [])
+        .controller('PaiController', PaiController)
+        .controller('FilhoController', FilhoController);
+        
+        function PaiController($scope) {
+            var vm = this;
+
+            vm.valor = "Meu Valor";
+            //$scope.valor = "ValorPai";
+                       
+             // function alteraValor(){
+             //    vm.valor = "xyz";
+             // }          
+
+            // pai.value = "PaiValor";
+            // pai.obj = {
+            //     objValue: "PaiValor"
+            // };    
+   
+            
+        }
+
+        function FilhoController($scope) {
+
+            // $scope.value = "FilhoValor";
+           // $scope.obj.objValue = "filhoValor";
+           
+
+           console.log( $scope );
+        }               
+
+
+
+    </script>
+</body>
+</html>

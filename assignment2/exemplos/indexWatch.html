@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" ng-app='MyApp'>
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.angularjs.org/1.6.4/angular.min.js"> </script>
+<body>
+    <div ng-controller="MyController">
+        
+        <span>{{ ::textArea }}</span>
+
+        <textarea style="" ng-model="textArea"></textarea> 
+        <!-- <button ng-click="atualizaMsg()"> Muda</button> -->
+        <button onclick="change()"> Muda</button>
+        
+    </div>
+    
+
+    <script>
+
+
+        
+        angular.module('MyApp', [])
+        .controller('MyController', MyController);
+        
+        function MyController($scope) {
+
+            $scope.msg = "OlaMundo"  
+
+            $scope.textArea = "Texto";
+
+            $scope.atualizaMsg = function(){
+                $scope.msg = 'Mundo Cruel'
+            }
+
+            $scope.$watch('textArea', function(depois, antes) {
+                console.log( "Mudou o valro de msg: " + antes + " foi para " + depois);   
+            });     
+                   
+   
+        }                
+
+
+        /////////
+
+
+
+
+          
+        //<button ng-click="msg = 'Mundo Cruel'"> Muda</button>
+        //<button onclick="change()"> Muda</button>
+
+        function change() {
+            var appElement = document.querySelector('[ng-controller=MyController]');
+            var $scope = angular.element(appElement).scope();
+            $scope.msg = '20';
+            //$scope.$digest();
+            $scope.$apply(function() {
+                 $scope.msg = '20';
+            });
+        }
+
+    </script>
+</body>
+</html>
